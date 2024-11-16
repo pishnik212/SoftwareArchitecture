@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="344px" preserveAspectRatio="none" style="width:1053px;height:344px;background:#FFFFFF;" version="1.1" viewBox="0 0 1053 344" width="1053px" zoomAndPan="magnify"><defs/><g><!--MD5=[f9629a815b3dfa4bf441bbc800252e11]
+cluster Система сбора и анализа списков абитуриентов--><g id="cluster_Система сбора и анализа списков абитуриентов"><path d="M286.5,6 L683.5,6 A3.75,3.75 0 0 1 686,8.5 L693,28.2969 L1043.5,28.2969 A2.5,2.5 0 0 1 1046,30.7969 L1046,334.5 A2.5,2.5 0 0 1 1043.5,337 L286.5,337 A2.5,2.5 0 0 1 284,334.5 L284,8.5 A2.5,2.5 0 0 1 286.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="284" x2="693" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="396" x="288" y="20.9951">Система сбора и анализа списков абитуриентов</text></g><g id="elem_UC1"><ellipse cx="472.1004" cy="81.8201" fill="#F1F1F1" rx="142.1004" ry="30.8201" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="254" x="345.1004" y="84.6668">Работа со списками абитуриентов</text></g><g id="elem_UC2"><ellipse cx="471.9927" cy="179.7985" fill="#F1F1F1" rx="144.4927" ry="31.2985" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="259" x="342.4927" y="182.6452">Просмотр данных об абитуриентах</text></g><g id="elem_UC3"><ellipse cx="905.6963" cy="301.9393" fill="#F1F1F1" rx="80.1963" ry="18.4393" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="844.6039" y="305.2979">Поиск по списку</text></g><g id="elem_UC4"><ellipse cx="905.5326" cy="220.8065" fill="#F1F1F1" rx="124.5326" ry="27.3065" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="217" x="797.0326" y="223.6532">Фильтрация данных в списке</text></g><g id="elem_UC5"><ellipse cx="905.6163" cy="137.2233" fill="#F1F1F1" rx="94.1163" ry="21.2233" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="830.1163" y="140.0699">Сортировка списков</text></g><g id="elem_UC6"><ellipse cx="905.4744" cy="60.8949" fill="#F1F1F1" rx="87.4744" ry="19.8949" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="837.4744" y="63.7416">Просмотр списков</text></g><g id="elem_UC7"><ellipse cx="471.985" cy="283.797" fill="#F1F1F1" rx="171.985" ry="36.797" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="316" x="313.985" y="286.6437">Поиск оптимального балла зеленой волны</text></g><!--MD5=[acebe9e291a1068bd7b4ed034caf4af9]
+entity act--><g id="elem_act"><ellipse cx="121.5" cy="150.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M121.5,158.5 L121.5,185.5 M108.5,166.5 L134.5,166.5 M121.5,185.5 L108.5,200.5 M121.5,185.5 L134.5,200.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="6" y="214.9951">Сотрудник приемной комиссии</text></g><!--MD5=[28c5cc309cea85ee158287ab90164564]
+link act to UC1--><g id="link_act_UC1"><path d="M237.09,142.55 C250.18,138.53 263.36,134.6 276,131 C306.31,122.36 339.49,113.73 369.75,106.16 " fill="none" id="act-to-UC1" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="374.97,104.86,365.2686,103.1623,370.1193,106.0727,367.2089,110.9234,374.97,104.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[41c526e4dd82add039b81dec06fb96a9]
+link act to UC2--><g id="link_act_UC2"><path d="M237.09,180 C264.27,180 293.64,180 322.1,180 " fill="none" id="act-to-UC2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="327.4,180,318.4,176,322.4,180,318.4,184,327.4,180" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d2ab5564aaa273a263cdcded5c26be94]
+link act to UC7--><g id="link_act_UC7"><path d="M237.2,217.08 C250.27,221.17 263.41,225.22 276,229 C303.19,237.17 332.63,245.66 360.18,253.45 " fill="none" id="act-to-UC7" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="365.31,254.9,357.7329,248.6081,360.4976,253.5434,355.5623,256.308,365.31,254.9" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a1d4b06a7f08f673ba6551d9d9d7a186]
+link UC1 to UC3--><g id="link_UC1_UC3"><path d="M587.4,100.19 C607.82,107.32 627.74,117.23 644,131 C667.67,151.04 653.75,170.51 674,194 C711.43,237.41 729.09,241.69 781,266 C800.2,274.99 822.15,282.27 842.17,287.86 " fill="none" id="UC1-to-UC3" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="847.21,289.25,839.5812,283.021,842.3865,287.9332,837.4743,290.7386,847.21,289.25" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="75" x="675" y="190.0669">расширяет</text></g><!--MD5=[41a13eddb1eb4ad2a8fa357668cebe40]
+link UC1 to UC4--><g id="link_UC1_UC4"><path d="M561.68,106.09 C588.27,113.67 617.43,122.33 644,131 C657.5,135.4 660.62,137.25 674,142 C726.51,160.62 786,180.99 831.38,196.38 " fill="none" id="UC1-to-UC4" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="836.29,198.05,829.0408,191.383,831.5523,196.4517,826.4836,198.9633,836.29,198.05" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="75" x="675" y="138.0669">расширяет</text></g><!--MD5=[33db5329112521c846cf0b630a56623e]
+link UC1 to UC5--><g id="link_UC1_UC5"><path d="M594.92,97.54 C666.07,106.61 754.12,117.83 818.1,125.99 " fill="none" id="UC1-to-UC5" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="823.44,126.67,815.0147,121.5696,818.4797,126.041,814.0083,129.5061,823.44,126.67" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="75" x="675" y="104.0669">расширяет</text></g><!--MD5=[aa9d2cfd37f9b85e856ad6a1e4475780]
+link UC1 to UC6--><g id="link_UC1_UC6"><path d="M610.72,75.3 C677.39,72.05 755.56,68.25 814.5,65.38 " fill="none" id="UC1-to-UC6" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="819.78,65.12,810.596,61.5626,814.7859,65.3633,810.9853,69.5531,819.78,65.12" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="678.5" y="66.0669">включает</text></g><!--MD5=[fd608d19a9947867b136da7e46fc574a]
+@startuml
+left to right direction
+
+
+actor "Сотрудник приемной комиссии" as act
+package "Система сбора и анализа списков абитуриентов" {
+  usecase UC1 as "Работа со списками абитуриентов"
+  usecase UC2 as "Просмотр данных об абитуриентах"
+  usecase UC3 as "Поиск по списку"
+  usecase UC4 as "Фильтрация данных в списке"
+  usecase UC5 as "Сортировка списков"
+  usecase UC6 as "Просмотр списков"
+  usecase UC7 as "Поиск оптимального балла зеленой волны"
+}
+
+act - -> UC1
+act - -> UC2
+act - -> UC7
+UC1 ..> UC3: расширяет
+UC1 ..> UC4: расширяет
+UC1 ..> UC5: расширяет
+UC1 ..> UC6: включает
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>
