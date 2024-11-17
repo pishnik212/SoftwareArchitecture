@@ -6,7 +6,7 @@
 
 Код:
 
-```html
+```uml
 @startuml
 
 
