@@ -6,8 +6,7 @@
 
 Код:
 
-```markdown
-```plaintext
+```mermaid
 @startuml
 
 
