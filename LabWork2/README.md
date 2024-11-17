@@ -6,7 +6,8 @@
 
 Код:
 
-```uml
+```markdown
+```plaintext
 @startuml
 
 
