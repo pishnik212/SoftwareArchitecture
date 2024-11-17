@@ -2,7 +2,7 @@
 
 ## 1.	Диаграмма системного контекста
 
- <img width="300" src="Images/1.svg" alt="1"/>
+ <img width="400" src="Images/1.svg" alt="1"/>
 
 Код:
 
