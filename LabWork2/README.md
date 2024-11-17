@@ -6,7 +6,7 @@
 
 Код:
 
-```messagebus
+```plantuml
 @startuml
 
 
