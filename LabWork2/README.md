@@ -6,10 +6,7 @@
 
 Код:
 
-```markdown
-# Пример UML диаграммы с использованием Mermaid
-
-```mermaid
+```messagebus
 @startuml
 
 
