@@ -4,7 +4,6 @@
 
  <img width="400" src="Images/1.svg" alt="1"/>
 
-Код:
 
 ```plantuml
 @startuml
