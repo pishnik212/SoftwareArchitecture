@@ -58,3 +58,39 @@ SHOW_LEGEND()
 **Повышенная модульность:** Гексагональная архитектура способствует разработке модульных, композитных компонентов, что упрощает добавление новой функциональности, замену адаптеров или реорганизацию структуры приложения.
 
 **Гибкая интеграция:** Использование портов и адаптеров позволяет легко подключать приложение к различным типам внешних сервисов и источников данных, повышая его адаптивность к различным средам и требованиям.
+
+ <img width="400" src="Images/2.svg" alt="1"/>
+
+```plantuml
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+
+AddElementTag("microService", $shape=EightSidedShape(), $bgColor="CornflowerBlue", $fontColor="white", $legendText="micro service\neight sided")
+AddElementTag("storage", $shape=RoundedBoxShape(), $bgColor="lightSkyBlue", $fontColor="white")
+
+SHOW_PERSON_OUTLINE()
+
+Person(admin, Администратор)
+Person(admissionsOfficer, Сотрудник приемной комиссии)
+
+System_Boundary(c1, "Система анализа списков абитуриентов") {
+    Container(clientAdmissionsOfficer, "Клиент сотрудника приемной комиссии", "Python, Django", "Позволяет просматривать списки абитуриентов и взаимодействовать с ними")
+    Container(clientAdmin, "Клиент администратора системы", "Python, Django", "Позволяет загружать и обновлять списки абитуриентов")
+    Container(api, "API Gateway", "Python, Fast API", "Шлюз, обеспечивающий взаимодействие между клиентским приложением и микросервисами")
+    ContainerDb(dbUser, "БД информации о пользователях", "Postgre SQL", "Хранит сведения о пользователях системы", $sprite="msql_server")
+    ContainerDb(dbSList, "БД информации об абитуриентах", "Postgre SQL", "Хранит сведения о загружаемых пользователями данных", $sprite="msql_server")
+    Container(model, "Модель машинного обучения", "Python, PyTorch", "Предсказывает балл зеленой волны")
+}
+
+Rel_D(admin, clientAdmin, "Настраивает условия для работы сотрудников приемной комиссии")
+Rel_D(admissionsOfficer, clientAdmissionsOfficer, "Получает списки и взаимодействует с ними")
+Rel_D(clientAdmin, api, "Перенаправление запроса клиента в соответстующий сервис", "JSON/HTTP")
+Rel_D(clientAdmissionsOfficer, api, "Перенаправление запроса клиента в соответстующий сервис", "JSON/HTTP")
+Rel_D(api, model, "Запрос предсказанных моделью данных", "JSON/HTTP")
+Rel_D(api, dbSList, "Чтение и запись данных", "SQL")
+Rel_D(api, dbUser, "Запись, чтение, редактирование, удаление данных", "SQL")
+
+SHOW_LEGEND()
+@enduml
