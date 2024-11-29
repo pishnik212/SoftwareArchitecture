@@ -25,40 +25,6 @@
 
  <img width="1000" src="Images/3.png" alt="1"/>
 
-```plantuml
-@startuml
-!include <C4/C4_Container>
-title Уровень контейнеров
-
-LAYOUT_LEFT_RIGHT()
-
-Person(admin, "Администратор")
-Person(admissionsOfficer, "Сотрудник приемной комиссии")
-
-
-System_Boundary(c1, "Система анализа списков абитуриентов") {
-    Container(frontend, "Клиентское приложение (Frontend)", "Python, Django", $descr="Веб-страницы для отображения и запроса данных, а также отправки команд")
-    Container(backend, "Серверное приложение (Backend)", "Python", $descr="Серверное веб-приложение с МСА")
-
-    ContainerDb(dbUser, "БД пользователей", "Postgre SQL", "Данные пользователей системы", $sprite="msql_server")
-    ContainerDb(dbEntrantList, "БД списков абитуриентов", "Postgre SQL", "Данные списков абитуриентов", $sprite="msql_server")
-    ContainerDb(dbModel, "БД моделей", "Postgre SQL", "Данные моделей МО", $sprite="msql_server")
-}
-
-Rel_D(admin, frontend, "Настраивать условия для работы сотрудников приемной комиссии")
-Rel_D(admissionsOfficer, frontend, "Получать списки и взаимодействовать с ними")
-
-Rel(frontend, backend, "запросы", "HTTPS")
-Rel(frontend, backend, "команды", "HTTPS")
-
-Rel(backend, dbUser, "Проверять корректность введенных пользователем персональных данных", "SQL")
-Rel(backend, dbModel, "Выбирать оптимальные параметры модели", "SQL")
-Rel(backend, dbEntrantList, "Управлять списками абитуриентов", "SQL")
-
-
-SHOW_LEGEND()
-@enduml
-```
 
 ## 3. Диаграмма компонент
 
