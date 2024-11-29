@@ -1,0 +1,57 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+
+LAYOUT_LEFT_RIGHT()
+
+
+AddElementTag("microService", $shape=EightSidedShape(), $bgColor="CornflowerBlue", $fontColor="white", $legendText="micro service\neight sided")
+AddElementTag("storage", $shape=RoundedBoxShape(), $bgColor="lightSkyBlue", $fontColor="white")
+
+SHOW_PERSON_OUTLINE()
+
+Person(admin, Администратор)
+Person(admissionsOfficer, Сотрудник приемной комиссии)
+
+System_Boundary(c1, "Система анализа списков абитуриентов") {
+    Container(clientWeb, "Веб-приложение на стороне клиента", "Python, Django", "Интерфейс для клиентов. Позволяет пользователям взаимодействовать с системой")
+    Container(api, "API Gateway Routing", "Python, Fast API", "Шлюз, обеспечивающий взаимодействие между клиентским приложением и микросервисами")
+
+Container_Boundary(c2, "Backend Системы") {
+    Container(msAuthentication,"Сервис аутентификации пользвоателя", "Python, Django", "Обрабатывает аутентификацию и авторизацию пользователей") 
+    Container(msDataWork,"Сервис работы со списками абитуриентов", "Python, Django", "Выполняет CRUD-операции в зависимости от прав пользователя")    
+    Container(msModel,"Сервис ML модели", "Python, PyTorch/TensorFlow", "Выполняет глубинный анализ данных системы об абитуриентах") 
+
+}
+    LAYOUT_LEFT_RIGHT()
+    ContainerDb(dbUser, "БД пользователей", "Postgre SQL", "Хранит сведения о пользователях системы", $sprite="msql_server")
+    ContainerDb(dbEntrantList, "БД информации об абитуриентах", "Postgre SQL", "Хранит сведения о загружаемых пользователями данных", $sprite="msql_server")
+    ContainerDb(dbModel, "БД ML моделей", "Postgre SQL", "Хранит сведения о моделях МО", $sprite="msql_server")
+
+
+}
+
+Rel_D(admin, clientWeb, "Настраивает условия для работы сотрудников приемной комиссии")
+Rel_D(admissionsOfficer, clientWeb, "Имеет доступ к спискам и операциям с ними")
+
+Rel_D(api, clientWeb , "Отправляет ответ микросервиса", "JSON/HTTP")
+Rel_D(clientWeb, api, "Выполняет API-вызов к", "JSON/HTTP")
+
+Rel_D(api, msModel, "Выполняет API-вызов предсказанных моделью данных", "JSON/HTTP")
+Rel_D(msModel, api, "Передает предсказанные моделью данные", "JSON/HTTP")
+Rel(msModel, dbModel, "Запись, чтение, удаление данных моделей", "SQL")
+Rel_U(dbModel, msModel, "Данные", "Data Rows")
+
+Rel_D(api, msAuthentication, "Выполняет API-вызов проверки корректности введенных пользователем персональных данных", "JSON/HTTP")
+Rel_D(msAuthentication, api, "Передает результат проверки корректности данных", "JSON/HTTP")
+Rel_D(msAuthentication, dbUser, "Чтение и сверка данных", "SQL")
+Rel_U(dbUser, msAuthentication, "Данные", "Data Rows")
+
+Rel_D(api, msDataWork, "Выполняет API-вызов на выполнение действий с данными", "JSON/HTTP")
+Rel_D(msDataWork, api, "Передает результат взаимодействия с данными", "JSON/HTTP")
+Rel_D(msDataWork, dbEntrantList, "CRUD-операции со списками абитуриентов", "SQL")
+Rel_U(dbEntrantList, msDataWork, "Данные", "Data Rows")
+
+SHOW_LEGEND()
+@enduml
