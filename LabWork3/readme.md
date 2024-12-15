@@ -49,7 +49,61 @@
 
 
 ## Применение основных принципов разработки
-<Продемонстрировать фрагменты кода, пояснив какой принцип реализуется>
+Серверный код:
+```
+# Реализация классов согласно структуре БД
+# Пользователь системы (Администратор / сотрудник приемной комиссии)
+class User(db.Model):
+    userId = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    roleId = db.Column(db.Integer, db.ForeignKey('role.roleId'))
+
+# Роль сотрудника - пользователя в системе
+class Role(db.Model):
+    roleId = db.Column(db.Integer, primary_key=True)
+    roleName = db.Column(db.String(80), nullable=False)
+
+# Просмотр всех пользователей пользователей системы
+@app.route('/users', methods=['GET'])
+def get_users():
+    users = User.query.all()
+    return jsonify([{'userId': user.userId, 'username': user.username} for user in users])
+
+# Просмотр всех поданных заявок
+@app.route('/applications', methods=['POST'])
+def add_application():
+    data = request.get_json()
+    new_application = Application(
+        submissionDate=data['submissionDate'],
+        status=data['status'],
+        entrantId=data['entrantId']
+    )
+    db.session.add(new_application)
+    db.session.commit()
+    return jsonify({'applicationId': new_application.applicationId}), 201
+```
+
+
+Клиентский код:
+```
+def get_users():
+    response = requests.get(f'{BASE_URL}/users')
+    return response.json()
+
+# Добавление новой заявки
+def add_application(submission_date, status, entrant_id):
+    application_data = {
+        'submissionDate': submission_date,
+        'status': status,
+        'entrantId': entrant_id
+    }
+    response = requests.post(f'{BASE_URL}/applications', json=application_data)
+    return response.json()
+```
+
+
+
 
 ## Дополнительные принципы разработки
 <По каждому принципу разработки из раздела повышенной сложности обосновать отказ или применение>
