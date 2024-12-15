@@ -50,7 +50,7 @@
 
 ## Применение основных принципов разработки
 Серверный код:
-```
+```python
 # Реализация классов согласно структуре БД
 # Пользователь системы (Администратор / сотрудник приемной комиссии)
 class User(db.Model):
@@ -86,7 +86,7 @@ def add_application():
 
 
 Клиентский код:
-```
+```python
 def get_users():
     response = requests.get(f'{BASE_URL}/users')
     return response.json()
