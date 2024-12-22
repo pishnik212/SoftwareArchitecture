@@ -2,35 +2,10 @@
 
 ## 1.	Диаграмма системного контекста
 
- <img width="400" src="Images/1.svg" alt="1"/>
+Описание взаимодействия пользователей с системой.
 
+ <img width="400" src="Images/1.png" alt="1"/>
 
-```plantuml
-@startuml
-
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-
-' uncomment the following line and comment the first to use locally
-' !include C4_Container.puml
-
-AddElementTag("microService", $shape=EightSidedShape(), $bgColor="CornflowerBlue", $fontColor="white", $legendText="micro service\neight sided")
-AddElementTag("storage", $shape=RoundedBoxShape(), $bgColor="lightSkyBlue", $fontColor="white")
-
-SHOW_PERSON_OUTLINE()
-
-Person(admin, Администратор)
-Person(admissionsOfficer, Сотрудник приемной комиссии)
-Container(c1, "Система анализа списка абитуриентов", "System")
-Container(c2, "Модель машинного обучения с предсказанием балла зеленой волны", "Model")
-
-Rel(admin, c1, "Загружает списки абитуриентов")
-Rel_D(admissionsOfficer, c1, "Получает списки и взаимодействует с ними")
-Rel_D(c1, c2, "Передает загруженные данные")
-Rel_D(c2, c1, "Передаёт предсказанные значения")
-
-SHOW_LEGEND()
-@enduml
-```
 
 ## 2. Диаграмма контейнеров
 
@@ -48,44 +23,12 @@ SHOW_LEGEND()
 
 **Простота тестирования:** За счет разделения сервисов и ограниченности предметной области доступно лучшее покрытие тестами.
 
- <img width="1000" src="Images/3.png" alt="1"/>
+На уровне компонентов C4 расписана подробно серверная часть, состоящая из взаимодействующих микросервисов.
 
-```plantuml
-@startuml
-!include <C4/C4_Container>
-title Уровень контейнеров
-
-LAYOUT_LEFT_RIGHT()
-
-Person(admin, "Администратор")
-Person(admissionsOfficer, "Сотрудник приемной комиссии")
+ <img width="1000" src="Images/2_2.png" alt="1"/>
 
 
-System_Boundary(c1, "Система анализа списков абитуриентов") {
-    Container(frontend, "Клиентское приложение (Frontend)", "Python, Django", $descr="Веб-страницы для отображения и запроса данных, а также отправки команд")
-    Container(backend, "Серверное приложение (Backend)", "Python", $descr="Серверное веб-приложение с МСА")
-
-    ContainerDb(dbUser, "БД пользователей", "Postgre SQL", "Данные пользователей системы", $sprite="msql_server")
-    ContainerDb(dbEntrantList, "БД списков абитуриентов", "Postgre SQL", "Данные списков абитуриентов", $sprite="msql_server")
-    ContainerDb(dbModel, "БД моделей", "Postgre SQL", "Данные моделей МО", $sprite="msql_server")
-}
-
-Rel_D(admin, frontend, "Настраивать условия для работы сотрудников приемной комиссии")
-Rel_D(admissionsOfficer, frontend, "Получать списки и взаимодействовать с ними")
-
-Rel(frontend, backend, "запросы", "HTTPS")
-Rel(frontend, backend, "команды", "HTTPS")
-
-Rel(backend, dbUser, "Проверять корректность введенных пользователем персональных данных", "SQL")
-Rel(backend, dbModel, "Выбирать оптимальные параметры модели", "SQL")
-Rel(backend, dbEntrantList, "Управлять списками абитуриентов", "SQL")
-
-
-SHOW_LEGEND()
-@enduml
-```
-
-## 3. Диаграмма компонент
+## 3. Диаграмма компонентов 
 
 ### Выбор архитектуры уровня приложений:
 
@@ -99,71 +42,6 @@ SHOW_LEGEND()
 
 **Гибкая интеграция:** Использование портов и адаптеров позволяет легко подключать приложение к различным типам внешних сервисов и источников данных, повышая его адаптивность к различным средам и требованиям.
 
-На уровне компонентов C4 расписана подробно серверна часть, состоящая из взаимодействующих микросервисов, а не одного приложения.
-
- <img width="1800" src="Images/4.png" alt="1"/>
-
-```plantuml
-@startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-' uncomment the following line and comment the first to use locally
-' !include C4_Container.puml
-
-LAYOUT_LEFT_RIGHT()
-
-
-AddElementTag("microService", $shape=EightSidedShape(), $bgColor="CornflowerBlue", $fontColor="white", $legendText="micro service\neight sided")
-AddElementTag("storage", $shape=RoundedBoxShape(), $bgColor="lightSkyBlue", $fontColor="white")
-
-SHOW_PERSON_OUTLINE()
-
-Person(admin, Администратор)
-Person(admissionsOfficer, Сотрудник приемной комиссии)
-
-System_Boundary(c1, "Система анализа списков абитуриентов") {
-    Container(clientWeb, "Веб-приложение на стороне клиента", "Python, Django", "Интерфейс для клиентов. Позволяет пользователям взаимодействовать с системой")
-    Container(api, "API Gateway Routing", "Python, Fast API", "Шлюз, обеспечивающий взаимодействие между клиентским приложением и микросервисами")
-
-Container_Boundary(c2, "Backend Системы") {
-    Container(msAuthentication,"Сервис аутентификации пользвоателя", "Python, Django", "Обрабатывает аутентификацию и авторизацию пользователей") 
-    Container(msDataWork,"Сервис работы со списками абитуриентов", "Python, Django", "Выполняет CRUD-операции в зависимости от прав пользователя")    
-    Container(msModel,"Сервис ML модели", "Python, PyTorch/TensorFlow", "Выполняет глубинный анализ данных системы об абитуриентах") 
-
-}
-    LAYOUT_LEFT_RIGHT()
-    ContainerDb(dbUser, "БД пользователей", "Postgre SQL", "Хранит сведения о пользователях системы", $sprite="msql_server")
-    ContainerDb(dbEntrantList, "БД информации об абитуриентах", "Postgre SQL", "Хранит сведения о загружаемых пользователями данных", $sprite="msql_server")
-    ContainerDb(dbModel, "БД ML моделей", "Postgre SQL", "Хранит сведения о моделях МО", $sprite="msql_server")
-
-
-}
-
-Rel_D(admin, clientWeb, "Настраивает условия для работы сотрудников приемной комиссии")
-Rel_D(admissionsOfficer, clientWeb, "Имеет доступ к спискам и операциям с ними")
-
-Rel_D(api, clientWeb , "Отправляет ответ микросервиса", "JSON/HTTP")
-Rel_D(clientWeb, api, "Выполняет API-вызов к", "JSON/HTTP")
-
-Rel_D(api, msModel, "Выполняет API-вызов предсказанных моделью данных", "JSON/HTTP")
-Rel_D(msModel, api, "Передает предсказанные моделью данные", "JSON/HTTP")
-Rel(msModel, dbModel, "Запись, чтение, удаление данных моделей", "SQL")
-Rel_U(dbModel, msModel, "Данные", "Data Rows")
-
-Rel_D(api, msAuthentication, "Выполняет API-вызов проверки корректности введенных пользователем персональных данных", "JSON/HTTP")
-Rel_D(msAuthentication, api, "Передает результат проверки корректности данных", "JSON/HTTP")
-Rel_D(msAuthentication, dbUser, "Чтение и сверка данных", "SQL")
-Rel_U(dbUser, msAuthentication, "Данные", "Data Rows")
-
-Rel_D(api, msDataWork, "Выполняет API-вызов на выполнение действий с данными", "JSON/HTTP")
-Rel_D(msDataWork, api, "Передает результат взаимодействия с данными", "JSON/HTTP")
-Rel_D(msDataWork, dbEntrantList, "CRUD-операции со списками абитуриентов", "SQL")
-Rel_U(dbEntrantList, msDataWork, "Данные", "Data Rows")
-
-SHOW_LEGEND()
-@enduml
-```
-## 4. Диаграмма компонента
-
 Каждый сервис - это автономный, независимо развертываемый программный компонент,
 который реализует определенные полезные функции (доступ к которым предоставляется при помощи API). Они
 реализуются адаптерами, которые взаимодействуют бизнес-логикой приложения (ядром шестигранной архитектуры). 
@@ -172,13 +50,28 @@ SHOW_LEGEND()
 Вокруг бизнес-логики размещаются адаптеры. Адаптеры также делятся на два типа: входящие и исходящие. Входящий адаптер обрабатывает запросы из внешнего мира, обращаясь входящему порту.
 Исходящий адаптер реализует исходящий порт и обрабатывает запросы бизнес-логики, обращаясь внешнему приложению или сервису. 
 
+### 3.1 Диаграмма компонента сервиса работы со списками абитуриентов (РсСА)
+
 В целом, структура сервисов описываемой системы довольна схожа. Сейчас подробно рассмотрим сервис, отвечающий за взаимодействие пользователя с данными абитуриентов.
 Описываемый сервис состоит из бизнес-логики следующих адаптеров:
-* адаптера REST API — входящего адаптера, который реализует REST API для
+* адаптера REST API (порт API_in)— входящего адаптера, который реализует REST API для
 вызова бизнес-логики
-* адаптера обработчика команд — входящего адаптера, который потребляет из канала
-командные сообщения вызывает бизнес-логику
-* адаптера базы данных — исходящего адаптера, который вызывается бизнес-логикой для доступа базе данных
-* адаптера публикации доменных событий — исходящего адаптера, который осуществляет монтироинг событий.
+* адаптера базы данных (порт DB_in) — входящего адаптера, который вызывается бизнес-логикой для доступа базе данных
+И аналиогичных двух выходящих (исходящих) портов, передаваемых информацию обратно от внешнего компонента (API_out, DB_out)
 
- <img width="800" src="Images/5.png" alt="1"/>
+ <img width="700" src="Images/ДКомп 01.png" alt="1"/>
+
+*Пояснение: сервис РсСА - сервис работы со списками абитуриентов (впервые представлен на диаграмме контейнеров, является частью Backend-системы).
+
+### 3.2 Диаграмма компонента сервиса аутентификации пользователя (АП)
+
+Аутентификационный сервис небходим для валидации персональных данных и последующего предоставления доступа пользователю к системе. Информация передается в хешированном виде и обеспечивает недежность личных данных.
+Описание адаптеров:
+* адаптер REST API (порт API_in)— входящий адаптер, который реализует REST API для
+вызова бизнес-логики
+* адаптер базы данных (порт DB_in) — входящий адаптер, который вызывается бизнес-логикой для доступа базе данных
+И аналиогичные два выходящих (исходящих) порта, передающие информацию обратно от внешнего компонента (API_out, DB_out)
+
+ <img width="700" src="Images/ДКомп 02.png" alt="1"/>
+
+*Пояснение: сервис АП - сервис аутентификации пользователей (впервые представлен на диаграмме контейнеров, является частью Backend-системы).
