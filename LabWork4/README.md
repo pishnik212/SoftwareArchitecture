@@ -209,19 +209,19 @@ Tests
 
 <img width="800" src="Lab4_Images/get_user_test.png" alt="1"/>
 
-### <a id="title3_3_1">POST user by id</a>
+### <a id="title3_3_1">PUT user by id</a>
 
 Body
 
- <img width="800" src="Lab4_Images/post_user_body.png" alt="1"/>
+ <img width="800" src="Lab4_Images/put_user_body.png" alt="1"/>
 
 Headres
 
- <img width="800" src="Lab4_Images/post_user_headers.png" alt="1"/>
+ <img width="800" src="Lab4_Images/put_user_headers.png" alt="1"/>
 
 Tests
 
-<img width="800" src="Lab4_Images/post_user_test.png" alt="1"/>
+<img width="800" src="Lab4_Images/put_user_test.png" alt="1"/>
 
 ### <a id="title3_4_1">DELETE user by id</a>
 
