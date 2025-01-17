@@ -240,7 +240,7 @@ curl --location 'http://127.0.0.1:8000/entrant/1' \
 ```
 
 
-### <a id="title3_7">PUT user by id</a>
+### <a id="title3_7">PUT entrant by id</a>
 
 **Описание:** Операция обновления данных абитуриента в системе
 
@@ -271,7 +271,7 @@ Body в json-формате
     "id": 1,
     "firstName": "Анна",
     "lastName": "Вычетаева",
-    "snils": "333-333-333 13"
+    "snils": "333-333-333 77"
 }
 ```
 
@@ -287,7 +287,7 @@ curl --location --request PUT 'http://127.0.0.1:8000/entrant/1' \
 }'
 ```
 
-### <a id="title3_8">DELETE user by id</a>
+### <a id="title3_8">DELETE entrant by id</a>
 
 **Описание:** Операция удаления данных об абитуриенте из системы
 
