@@ -327,7 +327,7 @@ Body
 
  <img width="800" src="Lab4_Images/post_user_0.png" alt="1"/>
 
-Headres
+Headers
 
  <img width="800" src="Lab4_Images/post_user_1.png" alt="1"/>
 
@@ -345,7 +345,7 @@ Body
 
  <img width="800" src="Lab4_Images/get_user_body.png" alt="1"/>
 
-Headres
+Headers
 
  <img width="800" src="Lab4_Images/get_user_headers.png" alt="1"/>
 
@@ -359,7 +359,7 @@ Body
 
  <img width="800" src="Lab4_Images/put_user_body.png" alt="1"/>
 
-Headres
+Headers
 
  <img width="800" src="Lab4_Images/put_user_headers.png" alt="1"/>
 
@@ -373,7 +373,7 @@ Body
 
  <img width="800" src="Lab4_Images/delete_user_body.png" alt="1"/>
 
-Headres
+Headers
 
  <img width="800" src="Lab4_Images/delete_user_headers.png" alt="1"/>
 
@@ -390,7 +390,7 @@ Body
 
  <img width="800" src="Lab4_Images/post_entrant_body.png" alt="1"/>
 
-Headres
+Headers
 
  <img width="800" src="Lab4_Images/post_entrant_headers.png" alt="1"/>
 
@@ -405,7 +405,7 @@ Body
 
  <img width="800" src="Lab4_Images/get_entrant_body.png" alt="1"/>
 
-Headres
+Headers
 
  <img width="800" src="Lab4_Images/get_entrant_headers.png" alt="1"/>
 
@@ -419,7 +419,7 @@ Body
 
  <img width="800" src="Lab4_Images/put_entrant_body.png" alt="1"/>
 
-Headres
+Headers
 
  <img width="800" src="Lab4_Images/put_entrant_headers.png" alt="1"/>
 
@@ -433,7 +433,7 @@ Body
 
  <img width="800" src="Lab4_Images/delete_entrant_body.png" alt="1"/>
 
-Headres
+Headers
 
  <img width="800" src="Lab4_Images/delete_entrant_headers.png" alt="1"/>
 
