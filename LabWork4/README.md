@@ -145,6 +145,29 @@ curl --location --request PUT 'http://127.0.0.1:8000/user/1' \
 }'
 ```
 
+### <a id="title3_4">DELETE user by id</a>
+
+**Описание:** Операция удаления пользователя из системы
+
+**Входные данные:** Query
+* id (целое число) - Идентификатор пользователя для удаления
+  
+
+**Пример входных данных:** 
+```
+/user/1
+```
+
+
+**Пример выходных данных:** 
+Выходных данных нет, необходимо смотреть на статус выполнения запроса.
+
+**cURL:**
+```
+curl --location --request DELETE 'http://127.0.0.1:8000/user/1' \
+--header 'Authorization: ••••••'
+```
+
 ## <a id="title1_2">Тестирование API</a>
 
 ### <a id="title2_2">Операции с аккаунтами пользователей</a>
@@ -200,3 +223,16 @@ Tests
 
 <img width="800" src="Lab4_Images/post_user_test.png" alt="1"/>
 
+### <a id="title3_4_1">DELETE user by id</a>
+
+Body
+
+ <img width="800" src="Lab4_Images/delete_user_body.png" alt="1"/>
+
+Headres
+
+ <img width="800" src="Lab4_Images/delete_user_headers.png" alt="1"/>
+
+Tests
+
+<img width="800" src="Lab4_Images/delete_user_test.png" alt="1"/>
