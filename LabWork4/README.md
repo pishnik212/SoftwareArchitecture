@@ -71,7 +71,7 @@ curl --location 'http://127.0.0.1:8000/user' \
 
 **Описание:** Операция получения данных о пользователе системы
 
-**Входные данные:** 
+**Входные данные:** Query
 * id (целое число) - Идентификатор искомого пользователя в системе
 
 **Пример входных данных:** 
@@ -96,6 +96,54 @@ curl --location 'http://127.0.0.1:8000/user/1' \
 --header 'Authorization: ••••••'
 ```
 
+
+### <a id="title3_3">PUT user by id</a>
+
+**Описание:** Операция обновления данных пользователя системы
+
+**Входные данные:** Query
+* id (целое число) - Идентификатор искомого пользователя в системе
+
+Body в json-формате
+* username (строка) - Имя пользователя
+* password (строка) - Пароль пользователя
+* role_id (целочисленное) - Идентификатор роли пользователя в системе
+
+**Пример входных данных:** 
+```
+/user/1
+```
+
+```json
+{
+  "username": "test_user",
+  "password": "my_new_password_077",
+  "role_id": 1
+}
+```
+
+**Пример выходных данных:** 
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJteV9wYXNzd29yZF8wMzUiLCJleHAiOjYxNzM3MDkyODAxfQ.C2TK7OvffDBfh7U1A2-tSN1EeojZbvyKsDUHUZdLTvU",
+    "user_id": 1,
+    "username": "test_user",
+    "password": "my_new_password_077",
+    "role_id": 1
+}
+```
+
+**cURL:**
+```
+curl --location --request PUT 'http://127.0.0.1:8000/user/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: ••••••' \
+--data '{
+  "username": "test_user",
+  "password": "my_new_password_077",
+  "role_id": 1
+}'
+```
 
 ## <a id="title1_2">Тестирование API</a>
 
@@ -137,3 +185,18 @@ Headres
 Tests
 
 <img width="800" src="Lab4_Images/get_user_test.png" alt="1"/>
+
+### <a id="title3_3_1">POST user by id</a>
+
+Body
+
+ <img width="800" src="Lab4_Images/post_user_body.png" alt="1"/>
+
+Headres
+
+ <img width="800" src="Lab4_Images/post_user_headers.png" alt="1"/>
+
+Tests
+
+<img width="800" src="Lab4_Images/post_user_test.png" alt="1"/>
+
