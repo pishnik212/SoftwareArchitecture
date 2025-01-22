@@ -322,7 +322,7 @@ curl --location --request DELETE 'http://127.0.0.1:8000/user/1' \
 
 ### <a id="title2_5">Операции с заявками абитуриентов</a>
 
-### <a id="title3_9">POST/application/ </a>
+### <a id="title3_9">POST / application / </a>
 
 **Описание:** Операция добавления сведений о заявках абитуриентов
 
