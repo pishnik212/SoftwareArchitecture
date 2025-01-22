@@ -43,7 +43,7 @@
 
 ### <a id="title2_1">Операции с аккаунтами пользователей</a>
 
-### <a id="title3_1">POST user </a>
+### <a id="title3_1">POST / user / </a>
 
 **Описание:** Операция добавления пользователя в систему
 
@@ -84,7 +84,7 @@ curl --location 'http://127.0.0.1:8000/user' \
 }
 '
 ```
-### <a id="title3_2">GET user by id</a>
+### <a id="title3_2">GET / user / {id}</a>
 
 **Описание:** Операция получения данных о пользователе системы
 
@@ -114,7 +114,7 @@ curl --location 'http://127.0.0.1:8000/user/1' \
 ```
 
 
-### <a id="title3_3">PUT user by id</a>
+### <a id="title3_3">PUT / user / {id}</a>
 
 **Описание:** Операция обновления данных пользователя системы
 
@@ -162,7 +162,7 @@ curl --location --request PUT 'http://127.0.0.1:8000/user/1' \
 }'
 ```
 
-### <a id="title3_4">DELETE user by id</a>
+### <a id="title3_4">DELETE / user / {id}</a>
 
 **Описание:** Операция удаления пользователя из системы
 
@@ -187,7 +187,7 @@ curl --location --request DELETE 'http://127.0.0.1:8000/user/1' \
 
 ### <a id="title2_3">Операции с абитуриентами</a>
 
-### <a id="title3_5">POST entrant </a>
+### <a id="title3_5">POST / entrant / </a>
 
 **Описание:** Операция добавления сведений об абитуриенте в систему
 
@@ -220,7 +220,7 @@ curl --location --request DELETE 'http://127.0.0.1:8000/user/1' \
 curl --location 'http://127.0.0.1:8000/    entrant' \--header 'Content-Type: application/json' \--header 'Authorization: ••••••' \--data '{  "firstName": "Анна",  "lastName": "Вычетаева",  "snils": "333-333-333 53"}'
 ```
 
-### <a id="title3_6">GET user by id</a>
+### <a id="title3_6">GET / user / {id}</a>
 
 **Описание:** Операция получения данных об абитуриенте по его id
 
@@ -249,7 +249,7 @@ curl --location 'http://127.0.0.1:8000/entrant/1' \
 ```
 
 
-### <a id="title3_7">PUT entrant by id</a>
+### <a id="title3_7">PUT / entrant / {id}</a>
 
 **Описание:** Операция обновления данных абитуриента в системе
 
@@ -296,7 +296,7 @@ curl --location --request PUT 'http://127.0.0.1:8000/entrant/1' \
 }'
 ```
 
-### <a id="title3_8">DELETE entrant by id</a>
+### <a id="title3_8">DELETE / entrant / {id}</a>
 
 **Описание:** Операция удаления данных об абитуриенте из системы
 
@@ -322,7 +322,7 @@ curl --location --request DELETE 'http://127.0.0.1:8000/user/1' \
 
 ### <a id="title2_5">Операции с заявками абитуриентов</a>
 
-### <a id="title3_9">POST application </a>
+### <a id="title3_9">POST/application/ </a>
 
 **Описание:** Операция добавления сведений о заявках абитуриентов
 
@@ -379,7 +379,7 @@ curl --location 'http://127.0.0.1:8000/application/' \
 '
 ```
 
-### <a id="title3_10">GET application by id</a>
+### <a id="title3_10">GET / application / {id}</a>
 
 **Описание:** Операция получения данных о заявке абитуриента по ее id 
 
@@ -415,7 +415,7 @@ curl --location 'http://127.0.0.1:8000/application/5' \
 ```
 
 
-### <a id="title3_11">PUT application by id</a>
+### <a id="title3_11">PUT / application / {id}</a>
 
 **Описание:** Операция обновления данных абитуриента в системе
 
@@ -479,7 +479,7 @@ curl --location --request PUT 'http://127.0.0.1:8000/application/5' \
 '
 ```
 
-### <a id="title3_12">DELETE application by id</a>
+### <a id="title3_12">DELETE / application / {id}</a>
 
 **Описание:** Операция удаления заявки абитуриента из системы
 
